@@ -9,10 +9,13 @@ import org.apache.log4j.Logger;
 public class Log4jTest 
 {
 	static Logger log = Logger.getLogger(Log4jTest.class.getName());
-	
+	private enum level { DEBUG, INFO, WARN, ERROR, FATAL }  
+
     public static void main( String[] args )
     {
-    	System.out.println("Log 4j write");
+    	String message1 = "test";
+    	message1 = message1 + level.DEBUG;
+    	System.out.println(message1.length());
     	DateFormat df = new SimpleDateFormat("HH:mm:ss");
     	System.out.println(df.format(new Date()));
     	
