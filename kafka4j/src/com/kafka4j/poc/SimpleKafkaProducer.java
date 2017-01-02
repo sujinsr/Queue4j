@@ -1,14 +1,14 @@
-package kafkatest;
+package com.kafka4j.poc;
 
-import java.time.LocalTime;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Properties;
 
-import org.apache.kafka.clients.producer.Producer;
-import org.apache.kafka.clients.producer.KafkaProducer;
-import org.apache.kafka.clients.producer.ProducerRecord;
+import org.apache.kafka.clients.producer.*;
 
-public class SimpleProducer {
-	 public static void main(String[] args) throws Exception{
+public class SimpleKafkaProducer {
+	public static void main(String[] args) throws Exception{
 		 System.out.println("Kafka 4j write");
 	      if(args.length == 0){
 	          System.out.println("Enter topic name");
@@ -32,19 +32,17 @@ public class SimpleProducer {
 	    	            
 	       //for(int i = 0; i < 10; i++)
 	       
-	       LocalTime earlier = LocalTime.now();
-	       System.out.println(earlier);    	
-	       for(int i = 0; i < 1000000; i++) {
+	    	DateFormat df = new SimpleDateFormat("HH:mm:ss");
+	    	System.out.println(df.format(new Date()));    	
+	       for(int i = 0; i < 9000000; i++) {
 	    	   String message = "In this tutorial, I am listing down 3 ways to know the difference between two dates in java. "
 	       			+ "Fist way is to calculate using Jodatime API which was available even before java 8 release. "
-	    			+ "Later 2 ways are using new Date Time API features available since java 8.";
+	    			+ "Later 2 ways are using new Date Time API features available since java 8." + i;
 	    	   
 	    	   producer.send(new ProducerRecord<String, String>(topicName, message, message));
 	       }
-	       LocalTime latest = LocalTime.now();
-	       System.out.println(latest);
+	       System.out.println(df.format(new Date()));    	
 
 	       producer.close();
 	 }
-
 }
