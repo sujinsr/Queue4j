@@ -5,7 +5,9 @@ import java.util.HashMap;
 
 public class Kafka4j {
 	private static HashMap<String, KafkaLogger> loggerMap;
+	static
 	{
+		System.out.println("Hash map initialized");
 		loggerMap = new HashMap<String, KafkaLogger>();
 	}
 	
