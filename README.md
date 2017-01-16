@@ -6,3 +6,6 @@
   This gives the more flexibility to run multiple listener with different log4j.properties file. Also can able to write seperate listener which reads logs from queue and create log viewer web application or store the logs to databases.
 
 
+# Project status
+
+This project is in development stage, Contributors are welcome.
