@@ -39,4 +39,8 @@ public class KafkaConnection {
 	public void send(String msg) {
 		producer.send(new ProducerRecord<String, String>(topicName, msg, msg));
 	}
+	
+	public void close() {
+		producer.close();
+	}
 }

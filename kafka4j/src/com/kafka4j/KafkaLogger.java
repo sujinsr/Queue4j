@@ -32,6 +32,10 @@ public class KafkaLogger {
 		sendFormattedMsg(msg, Level.FATAL);
 	}
 	
+	public void close() {
+		kafkaConn.close();
+	}
+	
 	private void sendFormattedMsg(String msg, Level level) {
 		kafkaConn.send(msgKey + "." + level + "." + msg);
 	}

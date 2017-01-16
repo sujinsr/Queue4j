@@ -11,5 +11,7 @@ public class SimpleLogProducer {
 		KafkaLogger log = Kafka4j.getKafkaLogger(SimpleLogProducer.class.getName());
 		log.debug("TestMessage");
 		System.out.println("end");
+		log.close();
+		
 	}
 }
